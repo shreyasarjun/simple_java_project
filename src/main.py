@@ -8,7 +8,7 @@ public class SimpleApp {
     public static void main(String[] args) {
         String text = "Hello, World!";
         System.out.println(StringUtils.reverse(text));
-        
+        ystem.out.println("Testing");
         List<String> words = new ArrayList<String>();
         words.add("Java");
         words.add("Programming");
