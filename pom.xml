@@ -1,53 +1,51 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:project xmlns:ns0="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <ns0:modelVersion>4.0.0</ns0:modelVersion>
 
-    <groupId>com.example</groupId>
-    <artifactId>old-style-app</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <ns0:groupId>com.example</ns0:groupId>
+    <ns0:artifactId>old-style-app</ns0:artifactId>
+    <ns0:version>1.0-SNAPSHOT</ns0:version>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
-    </properties>
+    <ns0:properties>
+        <ns0:project.build.sourceEncoding>UTF-8</ns0:project.build.sourceEncoding>
+        <ns0:maven.compiler.source>1.7</ns0:maven.compiler.source>
+        <ns0:maven.compiler.target>1.7</ns0:maven.compiler.target>
+    </ns0:properties>
 
-    <dependencies>
-        <!-- Old version of Apache Commons Lang -->
-        <dependency>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
-            <version>2.6</version>
-        </dependency>
+    <ns0:dependencies>
         
-        <!-- Old version of Apache HttpClient -->
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.3.6</version>
-        </dependency>
+        <ns0:dependency>
+            <ns0:groupId>commons-lang</ns0:groupId>
+            <ns0:artifactId>commons-lang</ns0:artifactId>
+            <ns0:version>20030203.000129</ns0:version>
+        </ns0:dependency>
         
-        <!-- Simple logging implementation -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.7.12</version>
-        </dependency>
-    </dependencies>
+        
+        <ns0:dependency>
+            <ns0:groupId>org.apache.httpcomponents</ns0:groupId>
+            <ns0:artifactId>httpclient</ns0:artifactId>
+            <ns0:version>4.5.14</ns0:version>
+        </ns0:dependency>
+        
+        
+        <ns0:dependency>
+            <ns0:groupId>org.slf4j</ns0:groupId>
+            <ns0:artifactId>slf4j-simple</ns0:artifactId>
+            <ns0:version>2.1.0-alpha1</ns0:version>
+        </ns0:dependency>
+    </ns0:dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
-                <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-</project>
+    <ns0:build>
+        <ns0:plugins>
+            <ns0:plugin>
+                <ns0:groupId>org.apache.maven.plugins</ns0:groupId>
+                <ns0:artifactId>maven-compiler-plugin</ns0:artifactId>
+                <ns0:version>3.1</ns0:version>
+                <ns0:configuration>
+                    <ns0:source>1.7</ns0:source>
+                    <ns0:target>1.7</ns0:target>
+                </ns0:configuration>
+            </ns0:plugin>
+        </ns0:plugins>
+    </ns0:build>
+</ns0:project>
