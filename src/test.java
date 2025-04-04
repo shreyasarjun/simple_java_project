@@ -1,17 +1,19 @@
 package com.example.oldapp;
 
-import org.apache.commons.lang.StringUtils;
-import org.apache.http.client.HttpClient;
+import org.apache.commons.lang3.StringUtils;  // Updated import for commons-lang3
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.HttpResponse;
+import org.apache.http.impl.client.CloseableHttpClient;  // Updated for newer HttpClient
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.util.EntityUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * Simple application using outdated Apache Commons Lang and HttpClient libraries
- * This code will require changes when updating to newer versions
+ * Updated application using modern Apache Commons Lang and HttpClient libraries
  */
 public class OldStyleApp {
+    private static final Logger logger = LoggerFactory.getLogger(OldStyleApp.class);
     
     public static void main(String[] args) {
         OldStyleApp app = new OldStyleApp();
@@ -20,40 +22,39 @@ public class OldStyleApp {
     }
     
     /**
-     * Process a string using old Apache Commons Lang (v2.x)
+     * Process a string using Apache Commons Lang3
      */
     public void processString(String input) {
-        System.out.println("Original input: '" + input + "'");
+        logger.info("Original input: '{}'", input);
         
-        // Old style StringUtils methods
+        // Updated StringUtils methods (API is similar but from commons-lang3)
         String trimmed = StringUtils.strip(input);
         boolean isEmpty = StringUtils.isEmpty(input);
         boolean isAlpha = StringUtils.isAlpha(trimmed);
         
-        System.out.println("Trimmed: '" + trimmed + "'");
-        System.out.println("Is empty: " + isEmpty);
-        System.out.println("Is alpha only: " + isAlpha);
+        logger.info("Trimmed: '{}'", trimmed);
+        logger.info("Is empty: {}", isEmpty);
+        logger.info("Is alpha only: {}", isAlpha);
     }
     
     /**
-     * Make HTTP request using deprecated HttpClient 4.3.x API
+     * Make HTTP request using modern HttpClient API
      */
     public void makeHttpRequest(String url) {
-        try {
-            // This DefaultHttpClient is deprecated in newer versions
-            HttpClient client = new DefaultHttpClient();
+        try (CloseableHttpClient client = HttpClients.createDefault()) {  // Modern try-with-resources
             HttpGet request = new HttpGet(url);
             
-            System.out.println("Making request to: " + url);
+            logger.info("Making request to: {}", url);
             
-            // Old style response handling
-            HttpResponse response = client.execute(request);
-            String responseBody = EntityUtils.toString(response.getEntity());
-            
-            System.out.println("Response status: " + response.getStatusLine());
-            System.out.println("Response length: " + responseBody.length() + " chars");
+            // Modern response handling with automatic resource cleanup
+            try (CloseableHttpResponse response = client.execute(request)) {
+                String responseBody = EntityUtils.toString(response.getEntity());
+                
+                logger.info("Response status: {}", response.getStatusLine());
+                logger.info("Response length: {} chars", responseBody.length());
+            }
         } catch (Exception e) {
-            System.err.println("Error making HTTP request: " + e.getMessage());
+            logger.error("Error making HTTP request: {}", e.getMessage(), e);
         }
     }
 }
